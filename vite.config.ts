@@ -1,7 +1,7 @@
 import { vitePlugin as remix } from "@remix-run/dev";
-import { cjsInterop } from "vite-plugin-cjs-interop";
 import { installGlobals } from "@remix-run/node";
 import { defineConfig } from "vite";
+import { cjsInterop } from "vite-plugin-cjs-interop";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 installGlobals();
@@ -11,6 +11,23 @@ export default defineConfig({
   // ssr: {
   //   noExternal: ["@mui/material"],
   // },
+
+  // dev: not working; prod: works
+  // ssr: {
+  //   noExternal: ['@mui/*'],
+  // },
+
+  // dev: not working; prod: works
+  // ssr: {
+  //   noExternal: ['@mui/**'],
+  // },
+
+  // dev: not working; prod: works
+  // https://github.com/kiliman/remix-vite-mui/blob/aee050114dae1b01d35276a7d7641d5df45fcfba/vite.config.ts#L10
+  // ssr: {
+  //   noExternal: process.env.NODE_ENV === "production" ? [/^@mui\//] : [],
+  // },
+
   plugins: [
     remix(),
     tsconfigPaths(),
