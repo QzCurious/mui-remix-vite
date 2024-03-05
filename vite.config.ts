@@ -1,4 +1,5 @@
 import { vitePlugin as remix } from "@remix-run/dev";
+import { cjsInterop } from "vite-plugin-cjs-interop";
 import { installGlobals } from "@remix-run/node";
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
@@ -6,7 +7,18 @@ import tsconfigPaths from "vite-tsconfig-paths";
 installGlobals();
 
 export default defineConfig({
-  plugins: [remix(), tsconfigPaths()],
+  // dev: not working; prod: works
+  // ssr: {
+  //   noExternal: ["@mui/material"],
+  // },
+  plugins: [
+    remix(),
+    tsconfigPaths(),
+    // dev: works; prod: works
+    cjsInterop({
+      dependencies: ["@mui/material/*"],
+    }),
+  ],
   server: {
     fs: {
       // Restrict files that could be served by Vite's dev server.  Accessing

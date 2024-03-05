@@ -11,6 +11,10 @@
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@emotion/cache": "^11.11.0",
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.15.11",
     "@remix-run/node": "^2.8.0",
     "@remix-run/react": "^2.8.0",
     "@remix-run/serve": "^2.8.0",
@@ -32,6 +36,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "typescript": "^5.1.6",
     "vite": "^5.1.0",
+    "vite-plugin-cjs-interop": "^2.0.6",
     "vite-tsconfig-paths": "^4.2.1"
   },
   "engines": {
